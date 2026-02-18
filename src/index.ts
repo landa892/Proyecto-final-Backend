@@ -29,7 +29,7 @@ serverHttp.use(express.json())
 
 serverHttp.use("/products", authMiddleware, productRouter)
 serverHttp.use("/auth", authRouter)
-serverHttp.use("/patients", authMiddleware, patientRoutes);
+serverHttp.use("/patients", patientRoutes);
 
 // error 404
 serverHttp.use((req, res) => {
