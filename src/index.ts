@@ -6,6 +6,7 @@ import { authRouter } from "./routes/authRouter"
 import { authMiddleware } from "./middleware/authMiddleware"
 import { IPayload } from "./interfaces/IPayload"
 import dotenv from "dotenv"
+import patientRoutes from './routes/patient.routes';
 
 dotenv.config()
 
@@ -28,6 +29,7 @@ serverHttp.use(express.json())
 
 serverHttp.use("/products", authMiddleware, productRouter)
 serverHttp.use("/auth", authRouter)
+serverHttp.use("/patients", authMiddleware, patientRoutes);
 
 // error 404
 serverHttp.use((req, res) => {
