@@ -28,7 +28,7 @@ serverHttp.use(express.json())
 // http://localhost:50000/products
 
 serverHttp.use("/products", authMiddleware, productRouter)
-serverHttp.use("/auth", authRouter)
+serverHttp.use("/auth", authRouter);
 serverHttp.use("/patients", patientRoutes);
 
 // error 404
