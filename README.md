@@ -1,30 +1,29 @@
-# Sistema de Gestión de Veterinaria - Backend
+# API de Gestión Veterinaria - UTN
 
-Proyecto desarrollado para la gestión de pacientes veterinarios, permitiendo el registro de mascotas, dueños y síntomas con almacenamiento en la nube.
+Este proyecto es una API REST desarrollada con el stack MERN (enfocado en Backend) para la gestión de pacientes en una veterinaria.
 
-## 🛠️ Tecnologías utilizadas
-* **Node.js** con **TypeScript**
-* **Express** (Framework de servidor)
-* **MongoDB Atlas** (Base de datos NoSQL en la nube)
-* **Zod** (Validación de esquemas)
-* **Mongoose** (ODM para MongoDB)
+## Requisitos Técnicos Cumplidos
+- **Lenguaje:** TypeScript
+- **Framework:** Express
+- **Base de Datos:** MongoDB con Mongoose (Atlas)
+- **Validación:** Zod
+- **Seguridad:** Hash de contraseñas con bcryptjs y protección de rutas con JWT.
+- **Arquitectura:** Patrón MVC (Model-View-Controller).
 
-## 🚀 Instalación y uso
+##  Requisito de Investigación: Filtrado por Query Params
+Se implementó un sistema de filtrado dinámico en el endpoint de pacientes. El cliente puede recuperar datos específicos utilizando parámetros de búsqueda en la URL.
+- **Ejemplo:** `GET /patients?species=perro` devolverá únicamente las mascotas cuya especie coincida con la búsqueda.
+
+## Instalación
 1. Clonar el repositorio.
-2. Ejecutar `npm install` para instalar las dependencias.
-3. Configurar el archivo `.env` (ver sección de variables de entorno).
-4. Iniciar el servidor con `npm run dev`.
+2. Ejecutar `npm install`.
+3. Crear un archivo `.env` basado en `.env.example`.
+4. Ejecutar `npm run dev` para iniciar el modo desarrollo.
 
-## 📌 Endpoints Principales
-* **POST `/patients`**: Crear un nuevo paciente.
-* **GET `/patients`**: Listar todos los pacientes.
-* **GET `/patients?species=perro`**: Filtrar pacientes por especie (Ej: perro, gato, otro).
-* **PUT `/patients/:id`**: Actualizar datos de una mascota.
-* **DELETE `/patients/:id`**: Eliminar un registro.
-
-## 🔑 Variables de Entorno
-Crear un archivo `.env` en la raíz con el siguiente formato:
-`PORT=3000`
-`URI_DB=tu_link_de_mongodb`
-`JWT_SECRET=tu_clave_secreta`
-`JWT_EXPIRES=1d`
+##  Endpoints
+- **Auth:** `/auth/register` y `/auth/login`
+- **Pacientes (Protegidos):**
+  - `POST /patients` - Crear mascota.
+  - `GET /patients` - Listar todos (acepta `?species=`).
+  - `PUT /patients/:id` - Actualizar.
+  - `DELETE /patients/:id` - Eliminar.

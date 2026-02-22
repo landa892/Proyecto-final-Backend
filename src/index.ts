@@ -1,7 +1,6 @@
 import express from "express"
 import cors from "cors"
 import { connectDb } from "./config/mongodb"
-import { productRouter } from "./routes/productsRouter"
 import { authRouter } from "./routes/authRouter"
 import { authMiddleware } from "./middleware/authMiddleware"
 import { IPayload } from "./interfaces/IPayload"
@@ -27,7 +26,6 @@ serverHttp.use(express.json())
 
 // http://localhost:50000/products
 
-serverHttp.use("/products", authMiddleware, productRouter)
 serverHttp.use("/auth", authRouter);
 serverHttp.use("/patients", patientRoutes);
 

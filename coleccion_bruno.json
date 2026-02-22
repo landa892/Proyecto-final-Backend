@@ -1,0 +1,58 @@
+{
+  "version": "1",
+  "name": "API Veterinaria - Nacho Landa",
+  "items": [
+    {
+      "name": "Registro de Usuario",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/auth/register",
+        "body": {
+          "mode": "json",
+          "json": "{\"name\": \"Nacho\", \"email\": \"nacho@test.com\", \"password\": \"Password123!\", \"confirmPassword\": \"Password123!\"}"
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/auth/login",
+        "body": {
+          "mode": "json",
+          "json": "{\"email\": \"nacho@test.com\", \"password\": \"Password123!\"}"
+        }
+      }
+    },
+    {
+      "name": "Crear Paciente",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:3000/patients",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer TU_TOKEN_ACA"
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\"name\": \"Firulais\", \"species\": \"perro\", \"ownerName\": \"Ignacio\", \"email\": \"nacho@test.com\", \"age\": 3, \"symptoms\": \"Control\"}"
+        }
+      }
+    },
+    {
+      "name": "Filtrar por Especie (Requisito Extra)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/patients?species=perro",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer TU_TOKEN_ACA"
+          }
+        ]
+      }
+    }
+  ]
+}
